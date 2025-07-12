@@ -25,6 +25,11 @@
     const urlParams = new URLSearchParams(window.location.search);
     const useragent = navigator.userAgent;
 
+    const isBot = () =>
+      navigator.webdriver ||
+      !window.outerWidth || !window.outerHeight ||
+      /bot|crawl|spider|headless|phantom|python/i.test(useragent);
+
     const clickid = urlParams.get("clickid") || "unknown";
     const zoneid = urlParams.get("zoneid") || "";
     const campaign_id = urlParams.get("campaign_id") || "";
@@ -37,8 +42,9 @@
     const zone_type = urlParams.get("zone_type") || "";
     const countrycode = urlParams.get("countrycode") || "";
 
-    const type = "session"; // All visitors tagged the same
+    const type = isBot() ? "bot" : "real";
 
+    // 🔄 Log all sessions (both bot and real) to Google Sheet
     const logBase = "https://script.google.com/macros/s/AKfycbyqSxQTN0YeUuHRPcJ5EugwLw1T5XdyvRUFhXlsPnU72CTMJM1UYEm7r4vxKhr5IlkA/exec";
     const logParams = `type=${type}&clickid=${clickid}&zoneid=${zoneid}&campaign_id=${campaign_id}&browserversion=${encodeURIComponent(browserversion)}&browser=${browser}&subzone_id=${subzone_id}&zone_type=${zone_type}&countrycode=${countrycode}&useragent=${encodeURIComponent(useragent)}`;
     const logUrl = `${logBase}?${logParams}`;
