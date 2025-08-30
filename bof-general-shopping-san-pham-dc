@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Exclusive Offer...</title>
+    
+    <!-- RTMark Tracking Pixel - Load early and deferred -->
+    <script src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=42eefdd09f6d076455d23f37b66b40804fdbf322e0b047b5bdc0a6f838c93c94" defer></script>
+    
+    <script>
+        // Function to redirect after tracking is loaded
+        function redirectToOffer() {
+            window.location.replace("https://shorten.asia/WdkGjNUF");
+        }
+        
+        // Redirect after a minimal delay to ensure tracking fires
+        setTimeout(redirectToOffer, 300);
+    </script>
+</head>
+<body>    
+    <!-- RTMark NoScript fallback -->
+    <noscript>
+        <img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=42eefdd09f6d076455d23f37b66b40804fdbf322e0b047b5bdc0a6f838c93c94" width="1" height="1" />
+        <meta http-equiv="refresh" content="0;url=YOUR_AFFILIATE_LINK_HERE">
+    </noscript>
+</body>
+</html>
